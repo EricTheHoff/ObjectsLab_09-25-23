@@ -15,6 +15,12 @@
 */
 
 //Code here
+const me = {
+  name: `Eric`,
+  age: 25
+}
+// console.log(me.name)
+// alert(me.name)
 
 /// ////////////// PROBLEM 2 ///////////////////
 
@@ -24,6 +30,14 @@
 */
 
 //Code here
+const favoriteThings = {
+  band: `The Sidh`,
+  food: `Seafood`,
+  person: `My fiancee`,
+  book: `The Silmarillion`,
+  movie: `Lord of the Rings`,
+  holiday: `Christmas`
+}
 
 /*
   After you've made your object, use bracket or dot notation to add another key named 'car' with the value being your favorite car
@@ -31,6 +45,8 @@
 */
 
 //Code here
+favoriteThings[`car`] = `Dodge Viper`
+favoriteThings[`brand`] = `Carhartt`
 
 /*
   Now use bracket or dot notation to change the value of the food key in your favoriteThings object to be 'Chicken Nuggets'
@@ -38,6 +54,8 @@
 */
 
 //Code here
+favoriteThings.food = `Chicken Nuggets`
+favoriteThings.book = `Harry Potter`
 
 /// ////////////// PROBLEM 3 ///////////////////
 
@@ -59,6 +77,8 @@ const user2 = {
 */
 
 //Code Here
+user2.name = `Bryan G. Smith`
+user2.email = `bryan.smith@devmounta.in`
 
 /// ////////////// PROBLEM 4 ///////////////////
 
@@ -70,6 +90,9 @@ let shoppingCart = {};
 */
 
 //Code Here
+function addToCart(item, qty) {
+  return shoppingCart[item] = qty
+}
 
 /// ////////////// PROBLEM 5 ///////////////////
 
@@ -80,6 +103,14 @@ let shoppingCart = {};
 */
 
 //Code Here
+function greaterThan10(obj) {
+  for(const key in obj) {
+    if(obj[key] > 10) {
+      obj[key] = 0
+    }
+  }
+  return obj
+}
 
 /// ////////////// PROBLEM 6 ///////////////////
 
@@ -90,6 +121,13 @@ let shoppingCart = {};
 */
 
 //Code Here
+//CHECK LATER
+function double(obj) {
+  for(const key in obj) {
+    obj[key] *= 2
+  }
+  return obj
+}
 
 /// ////////////// PROBLEM 7 ///////////////////
 
@@ -99,6 +137,13 @@ let shoppingCart = {};
 
 function showValues(obj) {
   //Code Here
+  let newArr = Object.values(obj)
+  let emptyString = ``
+
+  for(let val of newArr) {
+    emptyString += val
+  }
+  return emptyString
 }
 
 /// ////////////// PROBLEM 8 ///////////////////
@@ -111,6 +156,15 @@ function showValues(obj) {
 
 //Code Here
 
+function makeCard(cardNumber, expirationDate, securityCode) {
+  const creditCard = {
+    cardNumber: cardNumber,
+    expirationDate: expirationDate,
+    securityCode: securityCode
+  }
+  return creditCard
+}
+
 /// ////////////// PROBLEM 9 ///////////////////
 
 /*
@@ -119,6 +173,10 @@ function showValues(obj) {
 */
 
 //Code Here
+function removePassword(obj) {
+  delete obj.password
+  return obj
+}
 
 /// ////////////// PROBLEM 10 ///////////////////
 
@@ -136,6 +194,11 @@ const deleteTheBigNumbers = {
 */
 
 //Code Here
+for(const key in deleteTheBigNumbers) {
+  if(deleteTheBigNumbers[key] > 100) {
+    delete deleteTheBigNumbers[key]
+  }
+}
 
 /*
   Once you complete a problem, refresh ./destructuring.html in your browser and check to see if the problem's test(s) are passing.
@@ -161,6 +224,7 @@ const carDetails = {
 */
 
 //Code Here
+const {color, make, model, year} = carDetails
 
 /// ////////////// PROBLEM 12 ///////////////////
 
@@ -172,6 +236,7 @@ const carDetails = {
 
 function greeting(obj) {
   //Code Here
+  const {firstName, lastName, title} = obj
 
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
@@ -189,6 +254,10 @@ function greeting(obj) {
 */
 
 //Code Here
+function totalPopulation(obj) {
+  const {utah, california, texas, arizona} = obj
+  return utah + california + texas + arizona
+}
 
 /// ////////////// PROBLEM 14 ///////////////////
 
@@ -201,6 +270,14 @@ function greeting(obj) {
 */
 
 //Code Here
+function usCanadaBorder(array) {
+  const [lattitude, longitude] = array
+  if(lattitude === 49 && longitude >= -123 && longitude <= -95) {
+    return true
+  } else {
+    return false
+  }
+}
 
 /// ////////////// PROBLEM 15 ///////////////////
 
@@ -247,6 +324,20 @@ const employees = [
 */
 
 //Code Here
+function employeeUpdater() {
+  for(let employee of employees) {
+    if(employee.firstName === 'Theo') {
+      delete employee.firstName
+      delete employee.lastName
+      delete employee.email
+      delete employee.department
+    
+  } else if (employee.firstName === 'Lorie') {
+    employee.department = 'HR'
+  }
+}
+return employees
+}
 
 /// ////////////// PROBLEM 16 ///////////////////
 
@@ -275,6 +366,9 @@ const cat = {
 //Code Here
 let grumpyActivity;
 let fluffy2ndFriend;
+grumpyActivity = cat.catFriends[0]['activities'][1]
+fluffy2ndFriend = cat.catFriends[1]['name']
+
 
 /// ////////////// PROBLEM 17 ///////////////////
 
@@ -313,6 +407,12 @@ const myCar = {
 */
 
 //Code Here
+function recordCleaner() {
+  for(let accident of myCar.accidents){
+    accident.atFaultForAccident = false
+  }
+  return myCar
+}
 
 /// ////////////// PROBLEM 18 ///////////////////
 
@@ -331,6 +431,13 @@ const myCar = {
 */
 
 //Code Here
+function largeNumbers({first, second, third}) {
+  if(first < second && first < third) {
+    return first
+  } else if(second < third) { 
+    return second
+  } else return third
+}
 
 /// ////////////// PROBLEM 19 ///////////////////
 
@@ -341,3 +448,10 @@ const myCar = {
 */
 
 //Code Here
+function numberGroups({a, b, c}) {
+  if(a.length > b.length && a.length > c.length) {
+    return a
+  } else if(b.length > c.length) {
+    return b
+  } else return c
+}
