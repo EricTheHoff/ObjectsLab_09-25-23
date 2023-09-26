@@ -93,6 +93,9 @@ let shoppingCart = {};
 function addToCart(item, qty) {
   return shoppingCart[item] = qty
 }
+//dot notation --> property name will become a string, cannot evaluate variables.
+// shoppingCart.item = 5 --> shoppingCart = {item: 5}
+// shoppingCart[item] = 5 --> shoppingCart = {apple: 5}
 
 /// ////////////// PROBLEM 5 ///////////////////
 
